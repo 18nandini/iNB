@@ -1,7 +1,11 @@
 var testModule = angular.module('bankingApp',['ngRoute','ngCookies']);
 
-testModule.controller('BankController',bankController);
+var bankController = function($scope,$rootScope, $location, $route, $cookieStore) {
+};
 
+
+
+testModule.controller('BankController',bankController);
 
 testModule.config(function($routeProvider){
 
