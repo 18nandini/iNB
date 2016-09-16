@@ -1,0 +1,43 @@
+<ng-nav></ng-nav>
+<div class='row'><div class='col-md-10'></div><div class='col-md-2'><button ng-click="dashboardLink()" class="btn btn-danger commonFont">Dashboard</button></div></div>
+<div class="row" ><div class='col-md-5'></div><div class='col-md-3'><h3 class="commonFont">All Branch Managers</h3></div><div class='col-md-4'></div></div>
+<div class='row'>
+   <div class='col-md-1'></div> 
+   <div class='col-md-10'>
+			   <table class='table table-stripped commonFont'>
+			   <!-- 
+<!-- 			   value.branch,id : value.id,firstName : value.firstName, email: value.email, dateOfBirth: value.dateOfBirth,userName: value.userName, phone: value.phone, password : value.password, login: value.login, lastName : value.lastName, -->
+ 		      
+ 		      
+ 		      <tr class="danger commonFont">
+ 		        <th>Name</th>
+ 		        
+ 		        <th>User Name</th>
+ 		        <th>Password</th>
+ 		        <th>Email</th>
+ 		        <th>Contact</th>
+ 		        <th>Branch Name</th>
+ 		        
+ 		      
+ 		      
+ 		      </tr>
+ 		      
+ 		      
+ 		      
+ 		      <tr class="commonFont" ng-repeat="manager in managers | orderBy:'-'">
+			   <td><span class="glyphicon glyphicon-user"></span> {{manager.firstName}} {{manager.lastName}}</td>
+			   
+			   <td>{{manager.userName}}</td>
+			   <td>{{manager.password}}</td>
+			   <td><span class="glyphicon glyphicon-envelope"></span> {{manager.email}}</td>
+			   <td><span class="glyphicon glyphicon-earphone"></span> {{manager.phone}}</td>
+			   <td>{{manager.branch.branchName}}</td>
+			   
+			   
+			   </tr>
+			   </table>
+			   </div>
+	<div class='col-md-1'></div>
+			</div> 
+			
+<ng-foot></ng-foot>	

@@ -1,0 +1,230 @@
+<ng-nav></ng-nav>
+
+<div class='row'><div class='col-md-10'></div><div class='col-md-2 wlad'><h3 class="commonFont">Welcome {{getUser()}}</h3></div></div>
+
+
+<div class='row'>
+   <div class='col-md-2 iconlist'>
+   <ul>
+     
+     <li style='border:1px solid black' align='center'><a class="commonFont" ng-click='accDetails() '><figure><img src='image/profilev.png' class="userimage" width='120' height='120'><figcaption>My Profile</figcaption></figure></a></li>
+     <br>
+     <li style='border:1px solid black' align='center'><a class="commonFont" data-toggle="modal" data-target="#moneyTransfer"><figure><img src='image/moneyt.png' class='userimage' width='120' height='120'><figcaption>Money Transfer</figcaption></figure></a></li>
+     <br>
+     <li style='border:1px solid black' align='center'><a class="commonFont"  ng-click='getBalance(userData.customerId) ' ><figure><img src='image/balance.png' class='userimage' width='120' height='120'><figcaption>Account Details</figcaption></figure></a></li>
+     <br>
+   </ul>
+   </div>
+   
+   
+       <div ng-hide="getFlag()"  class='col-md-6' style="border: 2px solid black">
+        
+         
+        
+        <table class='table table-hover commonFont'>
+         
+        <tr><td>Address : {{userData.address}}</td></tr>
+        <tr><td>Email : {{userData.email}}</td></tr>
+        <tr><td>First Name : {{userData.firstName}}</td></tr>
+        <tr><td>Phone : {{userData.phone}}</td></tr>
+        <tr><td>Branch Address : {{userData.branch.address}}</td></tr>
+        <tr><td>Branch Name : {{userData.branch.branchName}}</td></tr>
+        <tr><td>IFSC Code{{userData.branch.ifscCode}}</td></tr>
+        </table>
+        
+        
+        
+        
+        
+        
+        
+        </div>
+        
+        
+        
+        
+        <div ng-show="getFlag()" class='col-md-6' style="border: 2px solid black">
+       <!-- accountType- "+response.data[0].accountType+" accountNumber- "+response.data[0].accountNumber+" balance- "+response.data[0].balance+" interestRate- "+response.data[0].interestRate);
+		 -->
+         
+        
+        <table class='table table-hover commonFont'>
+         
+        <tr><td>Account Type : {{userDa.accountType}}</td></tr>
+        <tr><td>Account Number : {{userDa.accountNumber}}</td></tr>
+        <tr><td>Account balance : {{userDa.balance}}</td></tr>
+        <tr><td>Interest Rate : {{userDa.interestRate}}</td></tr>
+        
+        </table>
+        
+        
+        
+        
+        
+        
+        
+        </div>
+        
+        
+        
+        
+   
+ </div>
+ 
+ 
+
+<div class='row'>
+
+  </div>
+  
+  <div class='col-md-8' >
+     
+     <div class='row'>
+       <div class='col-md-3'></div>
+       <!-- <ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation" class="active"><a href="#">Profile</a></li>
+  <li role="presentation" class="active"><a href="#">Messages</a></li>
+</ul> -->
+       
+        </div>
+        <div class='col-md-3'></div> 
+     </div>
+     
+       
+  
+  
+  </div>
+  <div class='col-md-2'></div>
+
+
+</div>
+
+<ng-foot></ng-foot>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="moneyTransfer" class="modal fade" role="dialog">
+			  <div class="modal-dialog modal-sm">
+
+
+<!-- 			<div class="form-group">
+						  <label for="name">title:</label>
+						  <input type="text" class="form-control" class="control-label" name="title" ng-model='p_title' placeholder=" product title" required>
+       					  <p id="tval" class="text-danger" ng-show="pform.title.$touched && pform.title.$invalid">title Required.</p>
+						  </div>
+ -->
+
+			    <!-- Modal content-->
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 class="modal-title">iNB Money Transfer</h4>
+			      </div>
+			     <form name='adminLoginForm'> 
+			      <div class="modal-body">
+			            <div class="form-group">
+						  <label for="usr">Sender Account No:</label>
+						  <input type="text" class="form-control" id="lusr" ng-model='cAccount' name="adminName" required>
+						  <p id="adminUser" class="text-danger" style="color:red" ng-show="adminLoginForm.adminName.$touched && adminLoginForm.adminName.$invalid">please enter your account no.</p>
+						   <!-- onfocusout="isEmpty() -->
+						</div>
+						
+						<div class="form-group">
+						  <label for="usr">Receiver Account No:</label>
+						  <input type="number" class="form-control" id="lusr" ng-model='rAccount' name="adminName" placeholder='Enter receiver account no' required " >
+						  <p id="adminUser" class="text-danger" style="color:red" ng-show="adminLoginForm.adminName.$touched && adminLoginForm.adminName.$invalid">please enter receiver's account no.</p>
+						   <!-- onfocusout="isEmpty() -->
+						</div>
+						
+						<div class="form-group">
+						  <label for="pwd">Enter amount:</label>
+						  <input type="text" class="form-control" id="pswd" ng-model='amount' name="adminPass" placeholder='Enter amount to be transfered' required ">
+						  <p id="adminPass" class="text-danger" style="color:red" ng-show="adminLoginForm.adminPass.$touched && adminLoginForm.adminPass.$invalid">amount is required.</p> <!-- onfocusout="isEmpty() -->
+						</div>
+                         <p class='alert alert-success' ng-hide='moneytransfer_success'>{{moneytransfer_success_msg}}</p>
+			      </div>
+			      </form>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-danger"  ng-click="transferMoney()" >Submit</button>
+			      </div>
+			    </div>
+
+			  </div>
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div id="accountDetails" class="modal fade" role="dialog">
+			  <div class="modal-dialog modal-sm">
+
+
+<!-- 			<div class="form-group">
+						  <label for="name">title:</label>
+						  <input type="text" class="form-control" class="control-label" name="title" ng-model='p_title' placeholder=" product title" required>
+       					  <p id="tval" class="text-danger" ng-show="pform.title.$touched && pform.title.$invalid">title Required.</p>
+						  </div>
+ -->
+
+			    <!-- Modal content-->
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 class="modal-title">iNB Money Transfer</h4>
+			      </div>
+			     <form name='adminLoginForm'> 
+			      <div class="modal-body">
+			        <div class="form-group">
+						  <label for="usr">Sender Account No:</label>
+						  <input type="number" class="form-control" id="lusr" ng-model='cAccount' name="adminName" placeholder='Enter sender account no' value={{}} required " >
+						  <p id="adminUser" class="text-danger" style="color:red" ng-show="adminLoginForm.adminName.$touched && adminLoginForm.adminName.$invalid">Admin name is required.</p>
+						   <!-- onfocusout="isEmpty() -->
+						</div>
+						
+						<div class="form-group">
+						  <label for="usr">Receiver Account No:</label>
+						  <input type="number" class="form-control" id="lusr" ng-model='rAccount' name="adminName" placeholder='Enter receiver account no' required " >
+						  <p id="adminUser" class="text-danger" style="color:red" ng-show="adminLoginForm.adminName.$touched && adminLoginForm.adminName.$invalid">Admin name is required.</p>
+						   <!-- onfocusout="isEmpty() -->
+						</div>
+						
+						<div class="form-group">
+						  <label for="pwd">Enter amount:</label>
+						  <input type="number" class="form-control" id="pswd" ng-model='amount' name="adminPass" placeholder='Enter amount to be transfered' required ">
+						  <p id="adminPass" class="text-danger" style="color:red" ng-show="adminLoginForm.adminPass.$touched && adminLoginForm.adminPass.$invalid">password is required.</p> <!-- onfocusout="isEmpty() -->
+						</div>
+                         <p class='alert alert-danger' ng-hide='admin_error'>{{error_msg}}</p>
+			      </div>
+			      </form>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-danger" ng-disabled="adminLoginForm.$invalid" ng-click="transferMoney()" >Submit</button>
+			      </div>
+			    </div>
+
+			  </div>
+			</div>
+

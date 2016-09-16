@@ -1,0 +1,119 @@
+<div id="approvalModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form name='docUploadForm'>
+				<button ng-click='reload()' type="button" class="close" data-dismiss="modal">&times;</button>  
+				<span><h3 class="commonFont">Approval mail send</h3></span>
+        	</form>
+		</div>
+
+	</div>
+</div>
+
+
+<div id="rejectionModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form name='docUploadForm'>
+				<button ng-click='reload()' type="button" class="close" data-dismiss="modal">&times;</button>  
+				<span><h3 class="commonFont">Rejection mail send</h3></span>
+        	</form>
+		</div>
+
+	</div>
+</div>
+
+
+
+<ng-nav></ng-nav>
+
+<div class='row'>
+<div class='row'><div class='col-md-5'></div><div class='col-md-5'><h3 class="commonFont">Pending Register Applications</h3></div><div class='col-md-2 wlad'><h3>Welcome {{getBm()}}</h3></div></div>
+<div class='col-md-1'></div>
+<div class='col-md-10'>
+<table class='table table-hover table-striped commonFont'>
+			  			<tr class="danger commonFont">
+						   
+						   <th>Name</th>
+						   <th>Email</th>
+						   <th>Contact</th>
+						   <th>Address</th>
+						   <th>Load Documents</th>
+						   
+						   
+						   <th colspan="2">Response</th>
+						</tr>
+						<tr class="commonFont" ng-repeat= "single in userList | orderBy:'-'" class="success">
+						
+						<td><span class="glyphicon glyphicon-user"></span> {{ single.firstname }} {{ single.lastname }}</td>
+						<td><span class="glyphicon glyphicon-envelope"></span> {{ single.email}}</td>
+						<td><span class="glyphicon glyphicon-earphone"></span> {{ single.phone}}</td>
+						<td><span class="glyphicon glyphicon-home"></span> {{ single.address}}</td>
+						<td><button class='btn btn-priamry' ng-click='getFiles(single.id)'>Get Documents</button></td>
+						<td><button class='btn btn-priamry' ng-click='approveUser(single.id)'>Approve</button></td>
+						
+						<td><button class='btn btn-priamry' ng-click='rejectUser(single.id)'  >Reject</button></td>	
+					    </tr>
+					
+	
+</table>
+</div>
+<div class='col-md-1'></div>
+</div>
+
+
+
+
+
+
+<!-- <div id="dialogContainer" ng-controller="dialogController as ctrl" layout="row" ng-cloak>
+         <md-content>
+            
+            <h4>Confirm Dialog Box</h4>
+            <md-button class="md-primary md-raised" ng-click="showConfirm($event)"  flex="100"  flex-gt-md="auto">
+               Confirm
+            </md-button>
+           
+            <div ng-if="status">
+               <br/>
+               <b layout="row" layout-align="center center" class="md-padding">
+                  {{status}}
+               </b>
+            </div>
+         </md-content>	 
+	   </div>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+  <div id="getDocModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			
+			<form name='docUploadForm'>
+			    
+				<button type="button" class="close" data-dismiss="modal">&times;</button>  
+				<span><h3>Address Proof</h3></span>
+                <img align='center' id="myImage" style="width: 600px; height: 500px;"/>
+					
+						
+			</form>
+		</div>
+
+	</div>
+</div>
+
+<ng-foot></ng-foot>
+
+

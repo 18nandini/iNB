@@ -1,0 +1,27 @@
+<ng-nav></ng-nav>
+<div class='row commonFont'><div class='col-md-10'></div><div class='col-md-2'><button ng-click="dashboardLink()" class="btn btn-danger commonFont">Dashboard</button></div></div>
+<div class="row" ><div class='col-md-5'></div><div class='col-md-3'><h3 class="commonFont">All Branches</h3></div><div class='col-md-4'></div></div>
+
+
+             <div class='row'>
+             <div class='col-md-3'></div>
+              <div class='col-md-6'>
+			   <table class='table table-stripped commonFont'>
+			   <tr class="danger commonFont">
+			   <th>ifscCode</th>
+			   <th>Branch Name</th>
+			   <th>Branch Address</th>
+			   <th>Branch Contact</th>
+			   </tr> 
+			   <tr ng-repeat="branch in branches | orderBy:'-'">
+			   <td>{{branch.code}}</td>
+			   <td>{{branch.branchn}}</td>
+			   <td>{{branch.brancha}}</td>
+			   <td><span class="glyphicon glyphicon-earphone"></span> {{branch.branchc}}</td>
+			   </tr>
+			   </table>
+			   </div>
+			   <div class='col-md-3'></div>
+			</div>
+
+<ng-foot></ng-foot>	

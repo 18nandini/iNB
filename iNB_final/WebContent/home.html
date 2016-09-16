@@ -1,0 +1,764 @@
+
+
+ <!-- change password modal -->
+<div id="changePasswordModal" class="modal fade" role="dialog">
+			  <div class="modal-dialog modal-sm">
+
+
+<!-- 			<div class="form-group">
+						  <label for="name">title:</label>
+						  <input type="text" class="form-control" class="control-label" name="title" ng-model='p_title' placeholder=" product title" required>
+       					  <p id="tval" class="text-danger" ng-show="pform.title.$touched && pform.title.$invalid">title Required.</p>
+						  </div>
+ -->
+
+			    <!-- Modal content-->
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 class="modal-title">Change Password form</h4>
+			      </div>
+			     <form name='changePForm'> 
+			      <div class="modal-body">
+			        
+						<div class="form-group">
+						  <label for="pwd">New Password:</label>
+						  <input type="password" class="form-control" id="pswd" ng-model='myNewPassword' name="bmPass" placeholder='Enter new password' required ">
+						  <p id="adminPass" class="text-danger" style="color:red" ng-show="bmLoginForm.bmPass.$touched && bmLoginForm.bmPass.$invalid">password is required.</p> <!-- onfocusout="isEmpty() -->
+						</div>
+						<div class="form-group">
+						  <label for="usr">Re-enter new password:</label>
+						  <input type="password" class="form-control" id="pswd2" ng-model="reenterPassword" name="reenter"  placeholder='Re Enter new password'  onfocusout="checkPassword()" required " >
+						  <p id="adminUser" class="text-danger" style="color:red" ng-show="bmLoginForm.reenter.$touched && bmLoginForm.reenter.$invalid">re-enter new password.</p>
+						   <!-- onfocusout="isEmpty() -->
+						</div>
+						<p style="color:red" id='samealert'></p>
+						<!-- <p  class='alert alert-danger' ng-hide='changepass_error'>{{changepass_error_msg}}</p> -->
+						<!-- <div class="form-group">
+						  <label for="pwd">Re-enter new password:</label>
+						  <input type="text" class="form-control"  ng-model='bmBranch' name="bmBranch" placeholder='Re-enter new password' required ">
+						  <p id="adminPass" class="text-danger" style="color:red" ng-show="bmLoginForm.bmBranch.$touched && bmLoginForm.bmBranch.$invalid">Branch Name is required.</p> onfocusout="isEmpty()
+						</div> -->
+						
+                        <!-- <div class="form-group">
+						  <label class="checkbox-inline"><input type="checkbox" value="">Remember Me</label>
+                        </div> -->
+			      </div>
+			      </form>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-danger" ng-disabled="changePForm.$invalid" ng-click="changePassword()">Change Password</button>
+			      </div>
+			    </div>
+
+			  </div>
+			</div>
+
+<!-- change password modal end -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!------------------------------------------------- all modal ------------------------------------------------>
+
+<div id="userRegisterModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Create Account</h4>
+			</div>
+			<form name="userRegisterForm">
+				<div class="modal-body">
+				
+				<div class='row'>
+					<div class='col-md-6'>
+					<div class="form-group">
+						<label for="usr">First name:</label>
+						 <input type="text" 
+							ng-pattern="/^[a-zA-Z\s]*$/" class="form-control" id="lusr"
+							ng-model='firstname' name="adminName" placeholder='First Name'required " >
+						<p id="adminUser" class="text-danger" style="color: red"
+							ng-show="userRegisterForm.adminName.$touched && userRegisterForm.adminName.$invalid">Enter
+							your firstname.</p>
+						<!-- onfocusout="isEmpty() -->
+					</div>
+					</div>
+					<div class='col-md-6'>
+					<div class="form-group">
+						<label for="pwd">Last name:</label> <input type="text"
+							class="form-control" id="pswd" ng-model='lastname'
+							name="lastname" placeholder='Last Name'required ">
+						<p id="adminPass" class="text-danger" style="color: red"
+							ng-show="userRegisterForm.lastname.$touched && userRegisterForm.lastname.$invalid">Enter
+							your lastname.</p>
+						<!-- onfocusout="isEmpty() -->
+					</div>
+					
+					</div>
+			</div>
+			
+			
+				<div class='row'>	
+					<div class='col-md-6'>
+					    <div class="form-group">
+						<label>Email:</label> <input type="email" class="form-control"
+							id="email" placeholder="Enter email" ng-model='email'
+							name='ename' required>
+						<p id="eval" class="text-danger" style="color: red"
+							ng-show="userRegisterForm.ename.$touched && userRegisterForm.ename.$invalid">Invalid email.</p>
+							
+					</div>
+					 
+					
+					</div>
+					<div class='col-md-6'>
+							
+							
+					<div class="form-group">
+						<label>Phone:</label> <input type="number" pattern=".{10,10}"
+							class="form-control" id="password2"
+							placeholder="Enter phone number" ng-model="phone" name="phnumber"
+							required>
+						<p id="phval" class="text-danger" style="color: red"
+							ng-show="userRegisterForm.phnumber.$touched && userRegisterForm.phnumber.$invalid">Phone number should be more than 10 digits.</p>
+					</div>
+					
+					
+					</div>
+				</div>
+				
+				
+				<div class='row'>	
+					<div class='col-md-6'>
+					      <div class="form-group">
+						<label>Address:</label><br> <input type="text"
+							class="form-control" id="password2" placeholder="Enter address"
+							ng-model='address' name="phname" required>
+						<p id="phval" class="text-danger" style="color: red"
+							ng-show="userRegisterForm.phname.$touched && userRegisterForm.phname.$invalid">Address
+							is required.</p>
+					</div>
+					
+					
+					</div>
+					<div class='col-md-6'>
+					       <div class="form-group">
+						<label>Date of birth:</label><br> 
+						
+						<input type="date"
+							class="form-control" id="password2" ng-model='dob' name='dob' max="{{minAge | date:'yyyy-MM-dd'}}"
+							required>
+						<p id="phval" class="text-danger" style="color: red"
+							ng-show="userRegisterForm.dob.$touched && userRegisterForm.dob.$invalid">Age should be above 18.</p>
+					</div>
+					
+					
+					</div>
+				</div>
+				
+				<div class='row'>	
+					<div class='col-md-6'>
+					         <div class="form-group">
+						<label for="pwd">Branch Name:</label> <select type="text"
+							class="form-control" id="pswd" ng-model='branchname' ng-init='branchname="none"'
+							ng-click="getBranches1()" name="branchname"
+							placeholder='Enter branch name'required ">
+							<option value='none'>None</option>
+							<option ng-repeat='branch in branches'>{{branch.branchn}}</option>
+						</select>
+						<p id="adminPass" class="text-danger" style="color: red"
+							ng-show="userRegisterForm.branchname.$touched && userRegisterForm.branchname.$invalid">Branch
+							name is required.</p>
+						<!-- onfocusout="isEmpty() -->
+					</div>
+					
+					
+					</div>
+					<div class='col-md-6'>
+					          <div class="form-group">
+						<label for="Account">Account type:</label> <select class="form-control" 
+							class="category-submitad" id="category" ng-init='acc_type="none"' ng-model='acc_type'
+							name='sel1name' required>
+							<option value='none'>Savings account</option>
+							<option>Current account</option>
+						</select>
+						<p id="sel1val" class="text-danger" style="color: red"
+							ng-show="userRegisterForm.sel1name.$touched && userRegisterForm.sel1name.$invalid">Category
+							is required.</p>
+					</div>
+					
+					<p class='alert alert-success' ng-hide='userreg_success'>{{userreg_success_msg}}</p>
+					<p class='alert alert-danger' ng-hide='userreg_error'>{{userreg_error_msg}}</p>
+				</div>
+					          
+					
+					
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				
+				
+					
+					
+					
+					
+					<!-- <div class="form-group">
+						  <label for="pwd">IFSC code:</label>
+						  <input type="text" class="form-control" id="pswd" ng-model='ifsccode' name="ifsccode" placeholder='Enter the code' required ">
+						  <p id="adminPass" class="text-danger" style="color:red" ng-show="userRegisterForm.ifsccode.$touched && userRegisterForm.ifsccode.$invalid">IFSC code is required.</p> onfocusout="isEmpty()
+						</div> -->
+					
+					<!--  <div class="form-group">
+						  <label for="pwd">Branch Address:</label>
+						  <input type="text" class="form-control" id="pswd" ng-model='branchaddress' name="branchadd" placeholder='Enter the code' required ">
+						  <p id="adminPass" class="text-danger" style="color:red" ng-show="userRegisterForm.branchadd.$touched && userRegisterForm.branchadd.$invalid">Branch address is  required.</p> onfocusout="isEmpty()
+						</div>
+						<div class="form-group">
+						  <label for="pwd">Branch contact:</label>
+						  <input type="text" class="form-control" id="pswd" ng-model='branchcontact' name="branchcontact" placeholder='Enter the code' required ">
+						  <p id="adminPass" class="text-danger" style="color:red" ng-show="userRegisterForm.branchcontact.$touched && userRegisterForm.branchcontact.$invalid">Branch contact number is required.</p> onfocusout="isEmpty()
+						</div> -->
+								</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger"
+					ng-disabled="userRegisterForm.$invalid"
+					ng-click="accountholderRegister()"  data-toggle='modal' data-target='#uploadDocModal'>Create Account</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+<!-- upload docs -->
+
+      <div id="uploadDocModal" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-sm">
+
+
+		<!-- 			<div class="form-group">
+						  <label for="name">title:</label>
+						  <input type="text" class="form-control" class="control-label" name="title" ng-model='p_title' placeholder=" product title" required>
+       					  <p id="tval" class="text-danger" ng-show="pform.title.$touched && pform.title.$invalid">title Required.</p>
+						  </div>
+ -->
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Upload Documents</h4>
+			</div>
+			<form name='docUploadForm'>
+				<div class="modal-body">
+					
+					<div class="form-group">
+					  <label for="usr">Address proof:</label> <input type="file"
+							class="form-control" id="file2" ng-model="file2" name="file2"
+							placeholder='Enter admin name'required " >
+					  
+
+           <img id="upload_preview" src="http://placehold.it/10x10" alt="your image" ng-model="objcetimage" style="width: 150px; height: 150px;"/>
+					
+					
+					
+						 <!-- <label for="usr">Admin name:</label> <input type="text"
+							class="form-control" id="lusr" ng-model='user' name="adminName"
+							placeholder='Enter admin name'required " >
+						<p id="adminUser" class="text-danger" style="color: red"
+							ng-show="adminLoginForm.adminName.$touched && adminLoginForm.adminName.$invalid">Admin
+							name is required.</p>
+						onfocusout="isEmpty() -->
+					</div><!--
+					<div class="form-group">
+						<label for="pwd">Password:</label> <input type="password"
+							class="form-control" id="pswd" ng-model='pass' name="adminPass"
+							placeholder='password'required ">
+						<p id="adminPass" class="text-danger" style="color: red"
+							ng-show="adminLoginForm.adminPass.$touched && adminLoginForm.adminPass.$invalid">password
+							is required.</p>
+						onfocusout="isEmpty()
+					</div> -->
+					<p class='alert alert-success' ng-hide='uploaddoc_success'>{{uploaddoc_success_msg}}</p>
+				</div>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" ng-click="uploadFiles(email)" >Upload</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+<!-- upload docs end -->
+
+
+
+
+
+
+<!---------------------------------------------- admin login modal ---------------------------------->
+
+
+<div id="adminLoginModal" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-sm">
+
+
+		<!-- 			<div class="form-group">
+						  <label for="name">title:</label>
+						  <input type="text" class="form-control" class="control-label" name="title" ng-model='p_title' placeholder=" product title" required>
+       					  <p id="tval" class="text-danger" ng-show="pform.title.$touched && pform.title.$invalid">title Required.</p>
+						  </div>
+ -->
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">ADMIN LOGIN</h4>
+			</div>
+			<form name='adminLoginForm'>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="usr">Admin name:</label> <input type="text"
+							class="form-control" id="lusr" ng-model='user' name="adminName"
+							placeholder='Enter admin name'required " >
+						<p id="adminUser" class="text-danger" style="color: red"
+							ng-show="adminLoginForm.adminName.$touched && adminLoginForm.adminName.$invalid">Admin
+							name is required.</p>
+						<!-- onfocusout="isEmpty() -->
+					</div>
+					<div class="form-group">
+						<label for="pwd">Password:</label> <input type="password"
+							class="form-control" id="pswd" ng-model='pass' name="adminPass"
+							placeholder='password'required ">
+						<p id="adminPass" class="text-danger" style="color: red"
+							ng-show="adminLoginForm.adminPass.$touched && adminLoginForm.adminPass.$invalid">password
+							is required.</p>
+						<!-- onfocusout="isEmpty() -->
+					</div>
+					<p class='alert alert-danger' ng-hide='admin_error'>{{error_msg}}</p>
+				</div>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger"
+					ng-disabled="adminLoginForm.$invalid" ng-click="adminLogin()">Login</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!---------------------------------------------- admin login end  --------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---------------------------------------------- Customer login modal ---------------------------------->
+
+
+<div id="customerLoginModal" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-sm">
+
+
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">USER LOGIN</h4>
+			</div>
+			<form name='customerLoginForm'>
+				<div class="modal-body">
+
+
+
+
+
+
+					<div class="form-group">
+						<label for="usr">Customer ID:</label> <input class="form-control"
+							type="number" placeholder="Enter Customer ID" name="customerName"
+							ng-model="username" id="usrname" required>
+						<p id="adminUser" class="text-danger" style="color: red"
+							ng-show="customerLoginForm.customerName.$touched && customerLoginForm.customerName.$invalid">Customer ID is required.</p>
+						<!-- onfocusout="isEmpty() -->
+					</div>
+					<div class="form-group">
+						<label for="pwd">Password:</label> <input class="form-control"
+							type="password" placeholder="Enter Password" name="customerPass"
+							ng-model="password" id="psswrd" required>
+						<p id="adminPass" class="text-danger" style="color: red"
+							ng-show="customerLoginForm.customerPass.$touched && customerLoginForm.customerPass.$invalid">password
+							is required.</p>
+					</div>
+
+				<!-- 	<div class="form-group">
+						<label for="pwd">Branch:</label> <select type="text"
+							class="form-control" id="pswd" ng-model='branchname'
+							ng-click="getBranches1()" name="branchname"
+							placeholder='Enter branch name'required ">
+							<option ng-repeat='branch in branches'>{{branch.branchn}}</option>
+						</select>
+						<p id="adminPass" class="text-danger" style="color: red"
+							ng-show="customerLoginForm.branchname.$touched && customerLoginForm.branchname.$invalid">Branch
+							name is required.</p>
+						
+					</div> -->
+					<p class='alert alert-danger' ng-hide='customer_error'>{{customer_error_msg}}</p>
+					<!-- <div class="form-group">
+						  <label class="checkbox-inline"><input type="checkbox" value="">Remember Me</label>
+                        </div> -->
+				</div>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger"
+					ng-disabled="customerLoginForm.$invalid" ng-click="userLogin()">Login</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!---------------------------------------------- Customer login end  --------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---------------------------------------------- consumer login modal ---------------------------------->
+
+<!-- 
+<div id="customerLoginModal" class="modal fade" role="dialog">
+			  <div class="modal-dialog modal-sm">
+
+
+			<div class="form-group">
+						  <label for="name">title:</label>
+						  <input type="text" class="form-control" class="control-label" name="title" ng-model='p_title' placeholder=" product title" required>
+       					  <p id="tval" class="text-danger" ng-show="pform.title.$touched && pform.title.$invalid">title Required.</p>
+						  </div>
+
+
+			    Modal content
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 class="modal-title">LOGIN</h4>
+			      </div>
+			     
+			     <form name='adminForm'> 
+			      <div class="modal-body">
+			        <div class="form-group">
+						  <label for="usr">Email:</label>
+						  <input type="text" class="form-control" id="lusr" ng-model='user' name="adminName" placeholder='username' required " >
+						  <p id="adminUser" class="text-danger" ng-show="adminForm.adminName.$touched && adminForm.adminName.$invalid">username Required.</p>
+						   onfocusout="isEmpty()
+						</div>
+						<div class="form-group">
+						  <label for="pwd">Password:</label>
+						  <input type="password" class="form-control" id="pswd" ng-model='pass' name="adminPass" placeholder='password' required ">
+						  <p id="adminPass" class="text-danger" ng-show="adminForm.adminPass.$touched && adminForm.adminPass.$invalid">password Required.</p> onfocusout="isEmpty()
+						</div>
+                        <div class="form-group">
+						  <label class="checkbox-inline"><input type="checkbox" value="">Remember Me</label>
+                        </div>
+			      </div>
+			      </form>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-info" ng-click="adminLogin()">Submit</button>
+			      </div>
+			    </div>
+
+			  </div>
+			</div>
+  -------------------------------------------- admin login end  -------------------------------------
+ -->
+
+
+
+
+
+<!---------------------------------------------- branch manager login modal ---------------------------------->
+
+
+<div id="bmLoginModal" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-sm">
+
+
+		<!-- 			<div class="form-group">
+						  <label for="name">title:</label>
+						  <input type="text" class="form-control" class="control-label" name="title" ng-model='p_title' placeholder=" product title" required>
+       					  <p id="tval" class="text-danger" ng-show="pform.title.$touched && pform.title.$invalid">title Required.</p>
+						  </div>
+ -->
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Branch Manager Login</h4>
+			</div>
+			<form name='bmLoginForm'>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="usr">User Name:</label> <input type="text"
+							class="form-control" ng-model='bmUser' name="bmName"
+							placeholder='username'required " >
+						<p id="adminUser" class="text-danger" style="color: red"
+							ng-show="bmLoginForm.bmName.$touched && bmLoginForm.bmName.$invalid">user
+							name is required.</p>
+						<!-- onfocusout="isEmpty() -->
+					</div>
+					<div class="form-group">
+						<label for="pwd">Password:</label> <input type="password"
+							class="form-control" id="pswd" ng-model='bmPass' name="bmPass"
+							placeholder='password'required ">
+						<p id="adminPass" class="text-danger" style="color: red"
+							ng-show="bmLoginForm.bmPass.$touched && bmLoginForm.bmPass.$invalid">password
+							is required.</p>
+						<!-- onfocusout="isEmpty() -->
+					</div>
+
+					<div class="form-group">
+						<label for="pwd">Branch Name:</label> <select type="text"
+							class="form-control" ng-model='bmBranch' name="bmBranch"
+							placeholder='Enter branch name' ng-init='bmBranch="none"' ng-click="getBranches1()"required ">
+							<option value='none' >None</option>
+							<option ng-repeat='branch in branches'>{{branch.branchn}}</option>
+						</select>
+						<p id="adminPass" class="text-danger" style="color: red"
+							ng-show="bmLoginForm.bmBranch.$touched && bmLoginForm.bmBranch.$invalid">Branch
+							Name is required.</p>
+						<!-- onfocusout="isEmpty() -->
+					</div>
+					<p class='alert alert-danger' ng-hide='bm_error'>{{bm_error_msg}}</p>
+					<!-- <div class="form-group">
+						  <label class="checkbox-inline"><input type="checkbox" value="">Remember Me</label>
+                        </div> -->
+				</div>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger"
+					ng-disabled="bmLoginForm.$invalid" ng-click="branchManagerLogin()">Login</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!---------------------------------------------- branch manager login end  --------------------------------------->
+
+
+
+
+
+
+
+
+
+<div>
+	<ng-nav></ng-nav>
+</div>
+
+
+
+<div id="carousel-example-generic" class="carousel slide"
+	data-ride="carousel">
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		<li data-target="#carousel-example-generic" data-slide-to="0"></li>
+		<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+	</ol>
+
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner" role="listbox">
+		<div class="item active">
+			<img src="image/s1.jpg">
+			<div class="carousel-caption">...</div>
+		</div>
+		<div class="item">
+			<img src="image/s2.png">
+			<div class="carousel-caption">...</div>
+		</div>
+		<div class="item">
+			<img src="image/s3.jpg">
+			<div class="carousel-caption">...</div>
+		</div>
+		...
+	</div>
+
+	<!-- Controls -->
+	<a class="left carousel-control" href="#carousel-example-generic"
+		role="button" data-slide="prev"> <span
+		class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span
+		class="sr-only">Previous</span>
+	</a> <a class="right carousel-control" href="#carousel-example-generic"
+		role="button" data-slide="next"> <span
+		class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span
+		class="sr-only">Next</span>
+	</a>
+</div>
+
+
+
+<div>
+	<br> <br>
+</div>
+
+
+<!-------------------------------------- icons row ------------------------->
+<div class='row'>
+	<div class='col-md-4'>
+		<hr class="style18">
+	</div>
+	<div class='col-md-4 our' align='center'>Our Services</div>
+	<div class='col-md-4'>
+		<hr class="style18">
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-3">
+
+		<div class="recent-work-wrap">
+			<img class="img-responsive" src="image/recent/savings_acc_rec.png"
+				alt="" style="border: 1px solid black">
+			<div class="overlay">
+				<div class="recent-work-inner">
+					<h3>
+						Savings Account
+					</h3>
+					<p>Facility to maintain accounts that pay interest with iNB.</p>
+					<!--                               <a class="preview" href="image/full/savings_acc.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>  -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3">
+		<div class="recent-work-wrap">
+			<img class="img-responsive" src="image/recent/current_account.png"
+				alt="" style="border: 1px solid black">
+			<div class="overlay">
+				<div class="recent-work-inner">
+					<h3>
+						Current Account
+					</h3>
+					<p>Facility to maintain accounts with overdraft facility with
+						iNB</p>
+					<!--                                 <a class="preview" href="image/full/item2.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3">
+		<div class="recent-work-wrap">
+			<img class="img-responsive" src="image/recent/money_trans.png" alt=""
+				style="border: 1px solid black">
+			<div class="overlay">
+				<div class="recent-work-inner">
+					<h3>
+						Money transfer
+					</h3>
+					<p>Facility to transfer amount from one account to another with
+						iNB</p>
+					<!-- <a class="preview" href="image/full/item3.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3">
+		<div class="recent-work-wrap">
+			<img class="img-responsive" src="image/recent/secure_trans.png"
+				alt="" style="border: 1px solid black">
+			<div class="overlay">
+				<div class="recent-work-inner">
+					<h3>
+						Secure Transaction
+					</h3>
+					<p>Fcaility to provide safe and secure transactions with iNB</p>
+					<!-- <a class="preview" href="image/full/item4.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+<!--/.row-->
+
+<!-------------------------------------- icons row ends  ------------------------->
+<br>
+<ng-foot></ng-foot>
+
+
+
+
+
+
+
+
+
+
+
+
+

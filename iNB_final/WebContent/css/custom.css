@@ -1,0 +1,115 @@
+.commonFont{font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;}
+.pushAbout{height:290px;}
+.pushTerm{height:220px;}
+.pushContact{height:420px;}
+.foot{background-color: black; padding:10px; color:white}
+.gap{height:20px}
+.gap1{height:10px}
+.top{background-color:#1DE9B6;}
+.logo{padding:15px;}
+.bar{background-color:#D63232; height:20px}
+.navs{font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;}
+.navs a{font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;}
+.navs a{font-size:150%}
+.navs a{font-weight:bold;}
+.menu{background-color: black;}
+.menu li a{color: white;}
+.userimage:hover{cursor: pointer;}
+.imageres:hover{opacity:.5; cursor: pointer;}
+hr.style18 { 
+  
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 2px; 
+   
+} 
+
+.just {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.wlad{
+font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-style:italic;
+} 
+.iconlist li a{text-decoration: none;}
+.iconlist ul{list-style:none;}
+.our{
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; font-size:35px; font-style:italic; font-face:
+}
+.menu li a:hover{background-color: red; color:white; cursor:pointer;}
+.pointer:hover{cursor:pointer;}
+.social li{display:inline;}
+
+
+
+
+
+#recent-works .col-md-3{
+  padding: 0;
+}
+
+#recent-works{
+    padding-bottom: 70px;
+}
+
+.recent-work-wrap {
+  position: relative;
+}
+
+.recent-work-wrap img{
+  width: 100%;
+}
+
+.recent-work-wrap .recent-work-inner{
+  top: 0;
+  background: transparent;
+  opacity: .8;
+  /* width: 100%; */
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.recent-work-wrap .recent-work-inner h3{
+  margin: 10px 0;
+}
+
+.recent-work-wrap .recent-work-inner h3 a{
+  font-size: 24px;
+  color: #fff;
+}
+
+.recent-work-wrap .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 0;
+  background: #c52d2f;
+  color: #fff;
+  vertical-align: middle;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;  
+  padding: 30px;
+}
+
+.recent-work-wrap .overlay .preview {
+  bottom: 0;
+  display: inline-block;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 0;
+  background: transparent;
+  text-align: center;
+  color: #fff;
+}
+
+.recent-work-wrap:hover .overlay {
+  opacity: 1;
+}
+
